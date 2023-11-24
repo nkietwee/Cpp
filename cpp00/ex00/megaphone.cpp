@@ -19,13 +19,11 @@ int main(int ac, char**av)
                 if (isalpha(av[i][j]))
                 {
                     c = toupper(av[i][j]);
-                    std::cout<< c ;
+                    std::cout << c ;
                 }
                 else
                     std::cout << av[i][j];
             }
-            // std::cout << std::endl;
-            // putchar(toupper(av[1][0]));
         }
     }
 
