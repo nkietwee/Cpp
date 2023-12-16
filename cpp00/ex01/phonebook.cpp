@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 15:11:33 by nkietwee          #+#    #+#             */
-/*   Updated: 2023/12/17 00:16:37 by nkietwee         ###   ########.fr       */
+/*   Updated: 2023/12/17 00:50:25 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	PhoneBook::mainprint(Contact contact, int j)
 	int	len;
 
 	len = 0;
-	len = 10 - loopprint(contact, j);
+	len = 10 - lenstr(contact, j);
 	if (len > 0)
 	{
 		for (int i; i < len; i++)
@@ -135,7 +135,7 @@ void	PhoneBook::_search()
 	}
 }
 
-int	PhoneBook::loopprint(Contact contact, int mode)
+int	PhoneBook::lenstr(Contact contact, int mode)
 {
 	int len;
 
