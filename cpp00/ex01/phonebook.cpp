@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 15:11:33 by nkietwee          #+#    #+#             */
-/*   Updated: 2023/12/17 00:50:25 by nkietwee         ###   ########.fr       */
+/*   Updated: 2023/12/17 19:30:28 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@ int		PhoneBook::getiter()
 	return(this->_index);
 }
 
+void	PhoneBook::set_maxindex(int max_index)
+{
+	this->_max_index = max_index;
+}
+int		PhoneBook::get_maxindex()
+{
+	return(this->_max_index);
+}
 void	PhoneBook::run(std::string str)
 {
 	if (str == "ADD")
@@ -67,6 +75,9 @@ void PhoneBook::_add()
 	std::cout << "---------index : " << this->_index << std::endl;
 	this->_contact[this->_index].setdata(input);
 	this->_index += 1;
+	this->_max_index += 1;
+	if (this->_max_index > 7)
+		this->_max_index = 8;
 }
 
 void	PhoneBook::printvaluemore(Contact contact, int mode)
@@ -87,15 +98,15 @@ void	PhoneBook::printvaluemore(Contact contact, int mode)
 void	PhoneBook::printvalueless(Contact contact, int mode)
 {
 	if (mode == firstname)
-		std::cout << this->_contact->getfirstname();
+		std::cout << contact.getfirstname();
 	else if (mode == lastname)
-		std::cout << this->_contact->getlastname();
+		std::cout << contact.getlastname();
 	else if (mode == nickname)
-		std::cout << this->_contact->getnickname();
+		std::cout << contact.getnickname();
 	else if (mode == phonenumber)
-		std::cout << this->_contact->getphonenumber();
+		std::cout << contact.getphonenumber();
 	else if (mode == darketsecret)
-		std::cout << this->_contact->getdarketsecret();
+		std::cout << contact.getdarketsecret();
 }
 void	PhoneBook::mainprint(Contact contact, int j)
 {
@@ -105,7 +116,7 @@ void	PhoneBook::mainprint(Contact contact, int j)
 	len = 10 - lenstr(contact, j);
 	if (len > 0)
 	{
-		for (int i; i < len; i++)
+		for (int i = 0; i < len; i++)
 			std::cout << " ";
 		printvalueless(contact, j);
 	}
@@ -116,13 +127,26 @@ void	PhoneBook::mainprint(Contact contact, int j)
 }
 void	PhoneBook::_search()
 {
+
+	// std::cout << "str : " << this->_contact[1].setdata()
+
 	int	space;
+	std::string prompt_id;
+	int	id;
+	int	max_index;
+
 	std::string prompt[5] = {"firstname", "lastname", "nickname", "phonenumber", "darkest_secret"};
 
 	std::cout << "-------------------------------------------" << std::endl;
 	std::cout << "     index| firstname|  lastname|  nickname" << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
-	for (int i = 0; i < this->_index; i++)
+
+
+	// insert max index
+	// printf("max_index : %d\n", _max_index);
+	max_index = get_maxindex();
+	// std::cout << "max_index : " << get_maxindex() << std::endl;
+	for (int i = 0; i < max_index; i++)
 	{
 		std::cout << "         " << i << "|";
 		for (int j = 0; j < 3; j++)
@@ -133,6 +157,29 @@ void	PhoneBook::_search()
 				std::cout << std::endl;
 		}
 	}
+	std::cout << "Enter index : " << std::endl;
+	std::getline(std::cin, prompt_id);
+	id = stoi(prompt_id) ;
+	if (id <= get_maxindex())
+	{
+		std::cout << "firstname : ";
+		std::cout << this->_contact[id].getfirstname() << std::endl;
+		std::cout << "lastname : ";
+		std::cout << this->_contact[id].getlastname() << std::endl;
+		std::cout << "nickname : ";
+		std::cout << this->_contact[id].getnickname() << std::endl;
+		std::cout << "phonenumber : ";
+		std::cout << this->_contact[id].getphonenumber() << std::endl;
+		std::cout << "darket_secret : ";
+		std::cout << this->_contact[id].getdarketsecret() << std::endl;
+	}
+	else
+		std::cout << "index over !!!!!";
+	// for (int i = 0; i <= id, i++)
+	// {
+	// 	if()
+	// }
+
 }
 
 int	PhoneBook::lenstr(Contact contact, int mode)

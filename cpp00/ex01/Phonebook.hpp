@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 02:09:30 by nkietwee          #+#    #+#             */
-/*   Updated: 2023/12/17 00:50:12 by nkietwee         ###   ########.fr       */
+/*   Updated: 2023/12/17 02:50:30 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ class PhoneBook
 		void	setdata(std::string input[5]);
 		void	setiter(int input_index);
 		int		getiter();
+		void	set_maxindex(int input_index);
+		int		get_maxindex();
 		void	printvalueless(Contact contact, int mode);
 		void	printvaluemore(Contact contact, int mode);
 		void	mainprint(Contact contact, int j);
@@ -39,6 +41,7 @@ class PhoneBook
 		PhoneBook();
 		~PhoneBook();
 	private:
+		int		_max_index;
 		int		_index;
 		Contact	_contact[8];
 		void	_add();
