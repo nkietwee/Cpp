@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 23:27:54 by nkietwee          #+#    #+#             */
-/*   Updated: 2023/12/18 01:37:24 by nkietwee         ###   ########.fr       */
+/*   Updated: 2023/12/18 01:54:49 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ void	PhoneBook::_search()
 			std::cout << RED << "Don't have index" << RESET << std::endl;
 	}
 	else
-		std::cout << "Enter number" << std::endl ;
+		std::cout << RED << "Enter number" << RESET << std::endl ;
 
 }
 
