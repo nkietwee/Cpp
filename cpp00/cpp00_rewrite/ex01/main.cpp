@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 23:42:45 by nkietwee          #+#    #+#             */
-/*   Updated: 2023/12/18 01:23:09 by nkietwee         ###   ########.fr       */
+/*   Updated: 2023/12/18 02:01:22 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(void)
 	while (1)
 	{
 		std::cout << BLUE << "Input : " << RESET;
-		getline(std::cin, str);
+		std::getline(std::cin, str);
 		if (str == "ADD" || str == "SEARCH" || str == "EXIT")
 			PhoneBook.run(str);
 		else

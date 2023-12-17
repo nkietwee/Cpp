@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 23:27:54 by nkietwee          #+#    #+#             */
-/*   Updated: 2023/12/18 01:54:49 by nkietwee         ###   ########.fr       */
+/*   Updated: 2023/12/18 02:01:50 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	PhoneBook::_add()
 	for (int i = 0; i < 5; i++)
 	{
 		std::cout << prompt[i] << " : " ;
-		getline(std::cin, input[i]);
+		std::getline(std::cin, input[i]);
 		if (input[i].empty())
 		{
 			std::cout << RED << "     Empty input !!!!! " << RESET << std::endl;
@@ -131,7 +131,7 @@ void	PhoneBook::_search()
 		}
 	}
 	std::cout << "Enter index : ";
-	getline(std::cin, str);
+	std::getline(std::cin, str);
 	if (all_of(str.begin(), str.end(), :: isdigit) == true)
 	{
 		index = stoi(str);
