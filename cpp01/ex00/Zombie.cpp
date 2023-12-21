@@ -5,13 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 14:39:11 by nkietwee          #+#    #+#             */
-/*   Updated: 2023/12/19 21:44:48 by nkietwee         ###   ########.fr       */
+/*   Created: 2023/12/21 16:29:51 by nkietwee          #+#    #+#             */
+/*   Updated: 2023/12/21 16:37:33 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
+Zombie::Zombie()
+{
+	return ;
+}
 Zombie::Zombie(std::string name)
 {
 	this->_name = name;
@@ -19,26 +23,10 @@ Zombie::Zombie(std::string name)
 
 Zombie::~Zombie()
 {
-	;
-}
-void	Zombie::announce(void)
-{
-	std::cout << this->_name << " BraiiiiiiinnnzzzZ..." << std::endl;
+	return ;
 }
 
-Zombie	*newZombie(std::string name)
+void	Zombie::announce( void )
 {
-	Zombie *res = nullptr;
-
-	res = new Zombie(name);
-	return (res);
-}
-
-void	randomChump(std::string name)
-{
-	Zombie *ret  = nullptr;
-
-	ret = new Zombie (name);
-	std::cout << name << " BraiiiiiiinnnzzzZ..." << std::endl;
-
+	std::cout << this->_name <<  ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

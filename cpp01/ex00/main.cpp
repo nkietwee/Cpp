@@ -5,18 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 14:36:45 by nkietwee          #+#    #+#             */
-/*   Updated: 2023/12/19 21:47:10 by nkietwee         ###   ########.fr       */
+/*   Created: 2023/12/21 16:22:30 by nkietwee          #+#    #+#             */
+/*   Updated: 2023/12/21 16:40:03 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int	main(void)
+int main()
 {
-	Zombie *mai;
+	Zombie *Zb;
 
-	mai = newZombie("mai");
-	mai->announce();
-	randomChump("mk");
+	Zb = newZombie("mew");
+	Zb->announce();
+	randomChump("mai");
+
 }

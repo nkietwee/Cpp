@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/21 16:20:37 by nkietwee          #+#    #+#              #
-#    Updated: 2023/12/21 16:33:53 by nkietwee         ###   ########.fr        #
+#    Created: 2023/12/21 16:41:16 by nkietwee          #+#    #+#              #
+#    Updated: 2023/12/21 16:42:20 by nkietwee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,8 @@ RM		= rm -f
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRCS	= main.cpp \
-			newZombie.cpp \
-			randomChump.cpp \
-			Zombie.cpp
+			Zombie.cpp \
+			zombieHorde.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
