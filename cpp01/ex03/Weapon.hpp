@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 16:42:29 by nkietwee          #+#    #+#             */
-/*   Updated: 2023/12/24 22:13:38 by nkietwee         ###   ########.fr       */
+/*   Created: 2023/12/21 21:31:48 by nkietwee          #+#    #+#             */
+/*   Updated: 2023/12/21 22:09:42 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#pragma once
+#include <iostream>
+#include "Weapon.hpp"
 
-Zombie::Zombie()
+class Weapon
 {
-	// std::cout << "create Zombie" << std::endl;
-	return ;
-}
-Zombie::~Zombie()
-{
-	return ;
-}
-
-void	Zombie::setname(std::string name)
-{
-	this->_name = name;
-}
-void Zombie::announce( void )
-{
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
+	public:
+		Weapon();
+		Weapon(std::string name);
+		~Weapon();
+		// HumanA A;
+		// HumanB B;
+	private:
+		std::string _name;
+		void	setType();
+	/* data */
+};

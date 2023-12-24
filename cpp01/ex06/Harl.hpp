@@ -1,32 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 16:42:29 by nkietwee          #+#    #+#             */
-/*   Updated: 2023/12/24 22:13:38 by nkietwee         ###   ########.fr       */
+/*   Created: 2023/12/24 21:46:38 by nkietwee          #+#    #+#             */
+/*   Updated: 2023/12/24 21:46:41 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#pragma once
+# include <iostream>
+# include <string.h>
 
-Zombie::Zombie()
+enum type
 {
-	// std::cout << "create Zombie" << std::endl;
-	return ;
-}
-Zombie::~Zombie()
+	DEBUG,
+	INFO,
+	WARNING,
+	ERROR
+} ;
+
+class Harl
 {
-	return ;
+	public:
+		Harl();
+		~Harl();
+		void	complain( std::string level );
+		// void	call
+	private:
+		void	debug( void );
+		void	info( void );
+		void	warning( void );
+		void	error( void );
+		int		setdefine(std::string level);
+};
+
+Harl::Harl(/* args */)
+{
 }
 
-void	Zombie::setname(std::string name)
+Harl::~Harl()
 {
-	this->_name = name;
-}
-void Zombie::announce( void )
-{
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
