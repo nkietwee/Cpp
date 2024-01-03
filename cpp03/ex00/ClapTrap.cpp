@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 17:01:34 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/01/02 21:43:19 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/01/02 22:56:59 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ ClapTrap::ClapTrap(std::string name)
 	_hit_point = 10;
 	_energy_point = 10;
 	_attack_damage = 0;
-	std::cout << YELLOW << "Constructor from ClapTrap" << RESET << std::endl;
+	std::cout << YELLOW << "Constructor ClapTrap(name)" << RESET << std::endl;
 }
 ClapTrap::~ClapTrap()
 {
@@ -47,7 +47,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &cp)
 // Default : ClapTrap <name> attacks <target>, causing <damage> points of damage!
 void	ClapTrap::attack(const std::string& target)
 {
-	std::cout << "______________________energy point : " << this->_energy_point << std::endl;
+	// std::cout << "______________________energy point : " << this->_energy_point << std::endl;
 	if (this->_hit_point <= 0 || this->_energy_point <= 0)
 	{
 		std::cout << "ClapTrap " << this->_name << " not able to attack anymore." << std::endl;
@@ -58,7 +58,7 @@ void	ClapTrap::attack(const std::string& target)
 }
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	this->_hit_point = this->_hit_point - amount;
+	this->_hit_point = this->_hit_point - amount; //hp
 	std::cout << "ClapTrap " << _name << "take Damage and loss " << amount << " HP" << std::endl;
 }
 
