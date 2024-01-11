@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 21:24:09 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/01/10 21:40:06 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/01/11 17:23:47 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ class Dog : public Animal
 		~Dog(void);
 		Dog(const Dog &d);
 		Dog&	operator=(const Dog &d);
+
+		void	setType(std::string name);
+		std::string	getType(void) const;
+		void	makeSound(void) const;
+
 	protected:
 		std::string _type;
 };
