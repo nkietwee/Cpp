@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 01:46:36 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/21 16:22:09 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/22 21:34:59 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ class AForm
 
 };
 
-std::ostream& operator<<(std::ostream &os, const Form &other);
+std::ostream& operator<<(std::ostream &os, const AForm &other);
 
 #endif
