@@ -6,7 +6,7 @@
 #    By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/06 21:07:53 by nkietwee          #+#    #+#              #
-#    Updated: 2024/08/19 23:37:05 by nkietwee         ###   ########.fr        #
+#    Updated: 2024/08/23 16:29:00 by nkietwee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,10 @@ CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRCS	= main.cpp \
 		Bureaucrat.cpp \
-		Form.cpp 
+		AForm.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 

@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 02:09:28 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/20 16:12:45 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/23 15:57:35 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Bureaucrat::Bureaucrat() : _name("Unname") , _grade(0)
 {
-    // std::cout << "[Default] Constructor Bureaucrat called" << std::endl;
+    std::cout << "[Default] Constructor Bureaucrat called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
@@ -23,9 +23,9 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
     this->_name = name;
     this->_grade = grade;
     if (this->_grade < 1)
-        throw (GradeTooHighException());
+        throw (Bureaucrat::GradeTooHighException());
     else if (this->_grade > 150)
-        throw (GradeTooHighException());
+        throw (Bureaucrat::GradeTooHighException());
     std::cout << "Bureaucrat[" << this->_name << "] " << "grade : " << this->_grade << " was created" << std::endl;   
 }
 
@@ -65,7 +65,7 @@ void Bureaucrat::decrement(int nbr)
 {
     this->_grade = this->_grade + nbr;
     if (this->_grade > 150)
-        throw (GradeTooLowException());
+        throw (Bureaucrat::GradeTooLowException());
     // std::cout << "[Decrement] Bureaucrat[" << this->_name << "] " << "grade : " << this->_grade << " was created" << std::endl; 
 }
 
@@ -73,7 +73,7 @@ void	Bureaucrat::increment(int nbr)
 {
     this->_grade = this->_grade - nbr;
     if (this->_grade < 1)
-        throw (GradeTooHighException());
+        throw (Bureaucrat::GradeTooHighException());
     // std::cout << "[Increment] Bureaucrat[" << this->_name << "] " << "grade : " << this->_grade << " was created" << std::endl; 
 }
 
@@ -82,15 +82,15 @@ void	Bureaucrat::increment(int nbr)
 std::exception	Bureaucrat::GradeTooHighException()
 {
 	// std::cout << "Grade too high exception" << std::endl;
-    std::invalid_argument exception("[GradeTooHighException] Grade that ranges from 1 to 150.");
-	throw exception; 
+    std::invalid_argument excpt("[GradeTooHighException] Grade that ranges from 1 to 150.");
+	throw excpt; 
 }
 
 std::exception Bureaucrat::GradeTooLowException()
 {
 	// std::cout << "Grade too low exception" << std::endl;
-    std::invalid_argument exception ("[GradeTooLowException] Grade that ranges from 1 to 150.");
-    throw exception;
+    std::invalid_argument excpt ("[GradeTooLowException] Grade that ranges from 1 to 150.");
+    throw excpt;
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat&obj)
@@ -99,7 +99,7 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat&obj)
     return (os);
 }
 
-void 	Bureaucrat::signForm(Form &form)
+void 	Bureaucrat::signForm(AForm &form)
 {
     try
     {

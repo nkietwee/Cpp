@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 01:51:56 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/21 16:20:33 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/23 14:58:10 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@
 
 # include <iostream>
 
-# include "Form.hpp"
 # include "AForm.hpp"
 
-class Form;
 class AForm;
 
 // Define some ANSI color codes
@@ -49,7 +47,7 @@ class Bureaucrat
 		void	increment(int nbr);
 		void	decrement(int nbr);
 
-		void 	signForm(Form &form);
+		void 	signForm(AForm &form);
 
 		void executeForm(AForm const & form);
 	private:

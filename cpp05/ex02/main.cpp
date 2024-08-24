@@ -6,26 +6,30 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 02:12:10 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/21 01:34:51 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/24 14:42:12 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main()
 {
     try
     {
-        Bureaucrat D("D", 100);
-        // Form[name, grade_sign, grade_exec]
-        Form       tmp("tmp", 150, 10);
+        Bureaucrat A("A", 2);
+ 
+        // ShrubberyCreationForm B("BB");
+        // B.execute(A);
         
-        std::cout << tmp << std::endl;
-        D.signForm(tmp);
-        std::cout << tmp << std::endl;
-        D.signForm(tmp);
-
+        // RobotomyRequestForm C("CC");
+        // C.execute(A); 
+               
+        PresidentialPardonForm D("DD");
+        D.execute(A); 
     }
     catch(const std::exception& e) // const std::invalid_argument& e
     {

@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 16:22:20 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/21 16:25:22 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/24 14:17:40 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@
 # include <string> 
 
 # include "Bureaucrat.hpp"
+# include "AForm.hpp"
+
 class Bureaucrat;
+class AForm;
 
 class PresidentialPardonForm : public AForm
 {
@@ -26,17 +29,17 @@ class PresidentialPardonForm : public AForm
         ~PresidentialPardonForm();
         PresidentialPardonForm& operator=(const PresidentialPardonForm &other);
 		PresidentialPardonForm(const PresidentialPardonForm &other);
-        PresidentialPardonForm(const std::string name, const int grade_sign, const int grade_exec);
+        PresidentialPardonForm(const std::string name);
 
-		std::exception GradeTooLowException();
+		std::exception GradeTooLowException() const;
 		std::exception GradeTooHighException();
 
-		virtual std::string	getName() const = 0;
-        virtual bool        getSign() const = 0;
-        virtual int         getGrade_sign() const = 0;
-		virtual int         getGrade_exec() const = 0;
-		virtual void		beSigned(const Bureaucrat &other) = 0;
-        virtual void        execute(const Bureaucrat &other) = 0;
+		virtual std::string	getName() const;
+        virtual bool        getSign() const;
+        virtual int         getGrade_sign() const;
+		virtual int         getGrade_exec() const;
+		virtual void		beSigned(const Bureaucrat &other);
+        virtual void        execute(const Bureaucrat &other) const;
 		
     private:
         const std::string	_name;

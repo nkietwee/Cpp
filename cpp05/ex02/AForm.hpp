@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 01:46:36 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/22 21:34:59 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/24 15:07:46 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class AForm
 {
     public:
         AForm();
-        ~AForm();
+        virtual ~AForm(); // It caleed derived class and base class If I have virtual
         AForm& operator=(const AForm &other);
 		AForm(const AForm &other);
         AForm(const std::string name, const int grade_sign, const int grade_exec);
@@ -36,7 +36,7 @@ class AForm
         virtual int         getGrade_sign() const = 0;
 		virtual int         getGrade_exec() const = 0;
 		virtual void		beSigned(const Bureaucrat &other) = 0;
-        virtual void        execute(const Bureaucrat &other) = 0;
+        virtual void        execute(const Bureaucrat &other) const = 0;
 		
     private:
         const std::string	_name;
