@@ -6,15 +6,16 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 16:24:11 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/24 14:17:57 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/25 17:12:29 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
 
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
+# include <cstdlib>
 
 # include "Bureaucrat.hpp"
 # include "AForm.hpp"
@@ -44,8 +45,8 @@ class RobotomyRequestForm : public AForm
     private:
         const std::string _name;
         bool _sign;
-        const int _grade_sign = 72;
-        const int _grade_exec = 45;
+        const int _grade_sign;
+        const int _grade_exec;
 };
 
 std::ostream &operator<<(std::ostream &os, const RobotomyRequestForm &other);

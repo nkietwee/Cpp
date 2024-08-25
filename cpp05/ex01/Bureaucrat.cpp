@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 02:09:28 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/20 16:12:45 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/23 12:30:20 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,15 +82,15 @@ void	Bureaucrat::increment(int nbr)
 std::exception	Bureaucrat::GradeTooHighException()
 {
 	// std::cout << "Grade too high exception" << std::endl;
-    std::invalid_argument exception("[GradeTooHighException] Grade that ranges from 1 to 150.");
-	throw exception; 
+    std::invalid_argument excpt("[GradeTooHighException] Grade that ranges from 1 to 150.");
+	throw excpt; 
 }
 
 std::exception Bureaucrat::GradeTooLowException()
 {
 	// std::cout << "Grade too low exception" << std::endl;
-    std::invalid_argument exception ("[GradeTooLowException] Grade that ranges from 1 to 150.");
-    throw exception;
+    std::invalid_argument excpt("[GradeTooLowException] Grade that ranges from 1 to 150.");
+    throw excpt;
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat&obj)

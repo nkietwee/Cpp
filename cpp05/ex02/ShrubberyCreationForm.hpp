@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 16:27:59 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/24 14:20:41 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/25 16:36:24 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ class ShrubberyCreationForm : public AForm
     private:
         const std::string _name;
         bool _sign;
-        const int _grade_sign = 145;
-        const int _grade_exec = 137;
+        const int _grade_sign;
+        const int _grade_exec;
 };
 
 std::ostream &operator<<(std::ostream &os, const ShrubberyCreationForm &other);

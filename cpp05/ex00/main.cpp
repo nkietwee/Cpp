@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 02:12:10 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/17 17:11:43 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/19 21:28:28 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main()
         Bureaucrat D("D", 140);
         D.decrement(30);
     }
-    catch(const std::exception& e)
+    catch(const std::exception& e) // const std::invalid_argument& e
     {
         std::cerr << e.what() << '\n';
     }

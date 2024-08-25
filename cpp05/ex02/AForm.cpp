@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 21:21:07 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/24 14:44:55 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/25 16:45:51 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ AForm::AForm(const AForm &other)
 {}
 
 AForm::AForm(const std::string name, const int grade_sign, const int grade_exec)
-: _name(name), _grade_sign(grade_sign), _grade_exec(grade_exec), _sign(false)
+: _name(name), _sign(false) , _grade_sign(grade_sign), _grade_exec(grade_exec)
 {
     // std::cout << "[AForm] constructed with name called" << std::endl;
     if (this->_grade_sign < 1 || this->_grade_exec < 1)

@@ -6,14 +6,14 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 12:32:35 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/24 14:42:26 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/25 17:04:54 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm()
-: AForm("Unnamed", 25, 5), _name("Unnamed")
+PresidentialPardonForm::PresidentialPardonForm() 
+: AForm("Unnamed", 25, 5), _name("Unnamed"), _grade_sign(25), _grade_exec(5)
 {
     std::cout << "[PresidentialPardonForm] constructed called" << std::endl;  
 }
@@ -34,14 +34,14 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other)
-: AForm(other)
+: AForm(other), _grade_sign(other.getGrade_sign()), _grade_exec(other.getGrade_exec())
 {
     std::cout << "[PresidentialPardonForm] Copy assignment operator called" << std::endl;
     *this = other;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string name)
-: AForm(name, 25, 5), _name(name)
+: AForm(name, 25, 5), _name(name), _grade_sign(25), _grade_exec(5)
 {
         std::cout << "[PresidentialPardonForm] constructed with name called" << std::endl;  
 }
@@ -111,12 +111,10 @@ void		PresidentialPardonForm::beSigned(const Bureaucrat &other)
 
 void        PresidentialPardonForm::execute(const Bureaucrat &other) const
 {
-    // std::cout << "other.getgrade : " << other.getGrade() << std::endl;
-    // std::cout << "this->_grade_Exec : " << this->_grade_exec << std::endl;
     if (other.getGrade() <= this->_grade_exec)
 	{
-		std::cout << other.getName()
-				  << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+		std::cout << GREEN << other.getName()
+				  << " has been pardoned by Zaphod Beeblebrox" << RESET << std::endl;
 	}
 	else
 		throw PresidentialPardonForm::GradeTooLowException();

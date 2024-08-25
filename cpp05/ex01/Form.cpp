@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 22:02:48 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/21 01:33:30 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/25 14:52:49 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Form::Form(const std::string name, const int grade_sign, const int grade_exec)
 {}
 
 Form::Form(const Form &other)
-: _name(other._name), _sign(other._sign), _grade_exec(other._grade_exec), _grade_sign(other._grade_sign)
+: _name(other._name), _sign(other._sign), _grade_sign(other._grade_sign), _grade_exec(other._grade_exec)
 {}
 
 

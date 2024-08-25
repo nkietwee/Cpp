@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 16:22:20 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/24 14:17:40 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/25 17:06:00 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ class PresidentialPardonForm : public AForm
     private:
         const std::string	_name;
         bool				_sign;
-		const int			_grade_sign = 25;
-		const int			_grade_exec = 5;
+		const int			_grade_sign;
+		const int			_grade_exec;
 
 };
 

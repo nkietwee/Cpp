@@ -6,14 +6,14 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 14:52:27 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/23 21:57:08 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/25 17:00:27 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm()
-: AForm("Unnamed", 145, 137), _name("Unnamed")
+: AForm("Unnamed", 145, 137), _name("Unnamed"), _sign(false), _grade_sign(145), _grade_exec(137)
 {
     std::cout << "[ShrubberyCreationForm] constructed called" << std::endl;
 }
@@ -34,13 +34,13 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
-: AForm(other)
+: AForm(other), _name("Unnamed"), _sign(false), _grade_sign(other.getGrade_sign()), _grade_exec(other.getGrade_exec())
 {
        std::cout << "[ShrubberyCreationForm] Copy assignment operator called" << std::endl;   
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string name)
-: AForm(name, 145, 135), _name(name)
+: AForm(name, 145, 135), _name(name), _sign(false), _grade_sign(145), _grade_exec(135)
 {
         std::cout << "[ShrubberyCreationForm] constructed with name called" << std::endl;  
 }
@@ -119,13 +119,13 @@ std::string ShrubberyCreationForm::generateTree() const
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {
-	std::ofstream file;
+    const std::string post_file =  "_shrubbery";
 	if (executor.getGrade() <= this->_grade_exec)
 	{
 		std::cout << "ShrubberyCreationForm executed by "
 			<< executor.getName()
 			<< "! Creating a file..." << std::endl;
-		file.open(this->_name + "_shrubbery");
+	    std::ofstream file((this->_name + post_file).c_str());
 		if (!file)
 			throw std::runtime_error("[ShrubberyCreationForm] Error opening file for writing\n");
 		file << generateTree();

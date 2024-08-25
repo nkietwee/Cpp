@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 15:14:24 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/25 13:59:49 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/25 17:18:30 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,22 @@ Intern& Intern::operator=(const Intern &other)
 
 Intern::Intern(const Intern &other)
 {
-    std::cout << "[Intern] Copy constructor called" << std::endl;  
+	(void)other;
+	std::cout << "[Intern] Copy constructor called" << std::endl;  
 }
 
 AForm* Intern::makeForm(const std::string name, const std::string target) const
 {   
-	std::map<int, std::string> table = {
-		{0, "shrubbery creation"},
-		{1, "robotomy request"},
-		{2, "presidential pardon"}
-	};
-	
+	// std::map<int, std::string> table = {
+	// 	{0, "shrubbery creation"},
+	// 	{1, "robotomy request"},
+	// 	{2, "presidential pardon"}
+	// };
+	std::map<int, std::string> table;
+	table[0] = "shrubbery creation";
+	table[1] = "robotomy request";
+	table[2] = "presidential pardon";
+
 	for (int i = 0; i < 3; i++)
 	{
 		if (name == table[i])
@@ -65,11 +70,12 @@ AForm* Intern::makeForm(const std::string name, const std::string target) const
 		}
 	}
 	std::cout << name << " form doesn't exist"  << std::endl;
-	return (nullptr);
+	return (NULL);
 }
 
 std::ostream& operator<<(std::ostream & os, Intern const& other)
 {
-    os << "[Intern] called" ;
+	(void)other;
+	os << "[Intern] called";
     return os;
 }

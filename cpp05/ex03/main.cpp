@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 02:12:10 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/25 13:55:58 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/25 17:21:55 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,22 @@ int main()
 		Intern A;
 		AForm*	rrf;
 		
-		// rrf = A.makeForm("test", "test");
+		rrf = A.makeForm("test", "test");
 	
 		rrf = A.makeForm("shrubbery creation", "Bender");
 		std::cout << *rrf << std::endl;
 		delete rrf;
 	
-		// rrf = A.makeForm("robotomy request", "Bender");
-		// std::cout << *rrf << std::endl;
-		// delete rrf;
+		rrf = A.makeForm("robotomy request", "Bender");
+		std::cout << *rrf << std::endl;
+		delete rrf;
 	
-		// rrf = A.makeForm("presidential pardon", "Bender");
-		// std::cout << *rrf << std::endl;
-		// Bureaucrat	obj("Oven", 2);
-		// obj.signForm(*rrf);
-		// obj.executeForm(*rrf);
-		// delete rrf;
+		rrf = A.makeForm("presidential pardon", "Bender");
+		std::cout << *rrf << std::endl;
+		Bureaucrat	obj("Oven", 2);
+		obj.signForm(*rrf);
+		obj.executeForm(*rrf);
+		delete rrf;
 		return (0);
         
     }

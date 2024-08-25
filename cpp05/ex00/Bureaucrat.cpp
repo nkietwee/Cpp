@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 02:09:28 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/17 17:09:37 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/23 12:30:50 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,18 +77,20 @@ void	Bureaucrat::increment(int nbr)
     std::cout << "[Increment] Bureaucrat[" << this->_name << "] " << "grade : " << this->_grade << " was created" << std::endl; 
 }
 
+
+// std::invalid_argument derived from std::logic_error, which in turn is derived from std::exception.
 std::exception	Bureaucrat::GradeTooHighException()
 {
 	// std::cout << "Grade too high exception" << std::endl;
-    std::invalid_argument exception("[GradeTooHighException] Grade that ranges from 1 to 150.");
-	throw exception;
+    std::invalid_argument excpt("[GradeTooHighException] Grade that ranges from 1 to 150.");
+	throw excpt; 
 }
 
 std::exception Bureaucrat::GradeTooLowException()
 {
 	// std::cout << "Grade too low exception" << std::endl;
-    std::invalid_argument exception ("[GradeTooLowException] Grade that ranges from 1 to 150.");
-    throw exception;
+    std::invalid_argument excpt("[GradeTooLowException] Grade that ranges from 1 to 150.");
+    throw excpt;
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat&obj)

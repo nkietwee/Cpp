@@ -6,14 +6,14 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 13:17:46 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/23 21:56:42 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/25 17:02:44 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm()
-: AForm("Unnamed", 72, 45) , _name("Unnamed")
+: AForm("Unnamed", 72, 45) , _name("Unnamed"), _grade_sign(72), _grade_exec(45)
 {
     std::cout << "[RobotomyRequestForm] constructed called" << std::endl;  
 }
@@ -34,13 +34,13 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
-: AForm(other)
+: AForm(other), _grade_sign(other.getGrade_sign()), _grade_exec(other.getGrade_exec())
 {
        std::cout << "[RobotomyRequestForm] Copy assignment operator called" << std::endl;   
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string name)
-: AForm(name, 72, 45), _name(name)
+: AForm(name, 72, 45), _name(name), _grade_sign(72), _grade_exec(45)
 {
         // std::cout << "[RobotomyRequestForm] constructed with name called" << std::endl;  
 }
@@ -116,11 +116,10 @@ std::exception RobotomyRequestForm::GradeTooLowException() const
 
 void    RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-    std::srand(time(NULL)); // get current time
-    if (std::rand() % 2 == 0) // random by current time(value from srand(time(NULL))) 
-        std::cout << executor.getName() << " has been robotomized successfully." << std::endl;
+    srand(time(NULL)); // get current time
+    if (rand() % 2 == 0) // random by current time(value from srand(time(NULL))) 
+        std::cout << GREEN << executor.getName() << " has been robotomized successfully." << RESET << std::endl;
     else
-        std::cout << executor.getName() + " has been robotomized fail." << std::endl;
-
-    std::cout << executor.getName() << " executed " << this->getName() << std::endl;
+        std::cout << GREEN << executor.getName() + " has been robotomized fail." << RESET << std::endl;
+    std::cout << GREEN << executor.getName() << " executed " << this->getName() << RESET << std::endl;
 }

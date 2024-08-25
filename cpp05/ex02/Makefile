@@ -6,7 +6,7 @@
 #    By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/06 21:07:53 by nkietwee          #+#    #+#              #
-#    Updated: 2024/08/23 16:29:00 by nkietwee         ###   ########.fr        #
+#    Updated: 2024/08/25 16:31:43 by nkietwee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS	= main.cpp \
 
 OBJS	= $(SRCS:.cpp=.o)
 
-%.o:%.c
+%.o:%.cpp
 			$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
