@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 14:52:27 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/24 15:39:14 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/25 14:01:43 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
 : AForm(other)
 {
-       std::cout << "[ShrubberyCreationForm] Copy assignment operator called" << std::endl;   
+    //    std::cout << "[ShrubberyCreationForm] Copy assignment operator called" << std::endl;   
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string name)

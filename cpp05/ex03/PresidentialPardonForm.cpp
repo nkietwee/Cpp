@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 12:32:35 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/24 15:38:41 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/25 14:01:26 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &oth
 PresidentialPardonForm::PresidentialPardonForm(const std::string name)
 : AForm(name, 25, 5), _name(name)
 {
-        std::cout << "[PresidentialPardonForm] constructed with name called" << std::endl;  
+        // std::cout << "[PresidentialPardonForm] constructed with name called" << std::endl;  
 }
 
 std::exception PresidentialPardonForm::GradeTooLowException() const

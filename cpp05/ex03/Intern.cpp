@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 15:14:24 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/24 15:53:46 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/25 13:59:49 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ Intern& Intern::operator=(const Intern &other)
     {
         return (*this);
     }
+	return (*this);
+
 }
 
 Intern::Intern(const Intern &other)
@@ -37,26 +39,32 @@ Intern::Intern(const Intern &other)
 }
 
 AForm* Intern::makeForm(const std::string name, const std::string target) const
-{
-    if (target == "shrubbery creation" )
-    {
-		std::cout << "Itern creates " << target;
-		return new ShrubberyCreationForm(name);
+{   
+	std::map<int, std::string> table = {
+		{0, "shrubbery creation"},
+		{1, "robotomy request"},
+		{2, "presidential pardon"}
+	};
+	
+	for (int i = 0; i < 3; i++)
+	{
+		if (name == table[i])
+		{
+			switch (i)
+			{
+				case 0:
+					std::cout << GREEN << "Intern creates " << name << RESET << std::endl;
+					return new ShrubberyCreationForm(target);
+				case 1:
+					std::cout << GREEN << "Intern creates " << name << RESET << std::endl;
+					return new RobotomyRequestForm(target);
+				case 2:
+					std::cout << GREEN << "Intern creates " << name << RESET << std::endl;
+					return new PresidentialPardonForm(target);
+			}	
+		}
 	}
-	else if (target == "robotomy request")
-    {
-		std::cout << "Itern creates " << target;
-		return new RobotomyRequestForm(name);
-	}
-	else if (target == "presidential pardon")
-    {
-		std::cout << "Itern creates " << target;
-		return new PresidentialPardonForm(name);
-	}
-    else
-    {
-		std::cerr << target << " form doesn't exist"  << std::endl;
-	}
+	std::cout << name << " form doesn't exist"  << std::endl;
 	return (nullptr);
 }
 

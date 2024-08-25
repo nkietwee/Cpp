@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 15:14:23 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/24 15:34:58 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/25 05:07:45 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,12 @@
 
 # include <iostream>
 # include <string>
+# include <map>
 
 # include "AForm.hpp"
 # include "ShrubberyCreationForm.hpp"
 # include "RobotomyRequestForm.hpp"
 # include "PresidentialPardonForm.hpp"
-
-
 
 class AForm;
 class ShrubberyCreationForm;
@@ -37,7 +36,7 @@ class Intern
         Intern(const Intern &other);
 
         AForm *makeForm(const std::string name, const std::string target) const;
-}
+};
 
 std::ostream& operator<<(std::ostream & os, Intern const& other);
 

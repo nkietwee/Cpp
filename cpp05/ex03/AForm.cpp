@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 21:21:07 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/24 14:44:55 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/25 14:00:05 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ AForm::AForm(const std::string name, const int grade_sign, const int grade_exec)
         throw (AForm::GradeTooHighException());
     else if (this->_grade_sign > 150 || this->_grade_exec > 150)
         throw (AForm::GradeTooHighException());
-    std::cout << "AForm[" << this->_name << "] "
-	<< "grade_exec : " << this->_grade_exec
-	<< " grade_sign : " << this->_grade_sign
-	<< " was created" << std::endl;
+    // std::cout << "AForm[" << this->_name << "] "
+	// << "grade_exec : " << this->_grade_exec
+	// << " grade_sign : " << this->_grade_sign
+	// << " was created" << std::endl;
 }
 
 std::exception AForm::GradeTooLowException()
