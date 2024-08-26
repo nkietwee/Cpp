@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 01:35:40 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/27 00:32:51 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/27 00:46:57 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,29 +24,29 @@ ScalarConverter::~ScalarConverter()
 
 ScalarConverter& ScalarConverter::operator=(const ScalarConverter &other)
 {
-    (void)other;
+    static_cast<void>(other);
     return (*this);
 }
 
 ScalarConverter::ScalarConverter(const ScalarConverter &other)
 {
-    (void)other;
+    static_cast<void>(other);
 }
 
-void ScalarConverter::convert(char *str)
+void ScalarConverter::convert(std::string str)
 {
     double  nbr_d ;
     char c = '\0';
     char    &end = c;
 
-    nbr_d = ft_stob(str, end);
+    nbr_d = ft_stob(str.c_str(), end);
     cvt_char(nbr_d, end);
     cvt_int(nbr_d, end);
-    cvt_float(str, nbr_d, end);
-    cvt_double(str, nbr_d, end);
+    cvt_float(str.c_str(), nbr_d, end);
+    cvt_double(str.c_str(), nbr_d, end);
 }
 
-double ft_stob(char *str, char &end)
+double ft_stob(const char *str, char &end)
 {
     int i;
     int sign;
@@ -92,7 +92,7 @@ void cvt_int(double nbr_d, char &end)
         std::cout << "int: " << static_cast<int>(nbr_d) << std::endl;
 }
 
-void cvt_float(char *res, double nbr_d, char &end)
+void cvt_float(const char *res, double nbr_d, char &end)
 {
     if (prt_txtsci(res, t_float) == true)
         return ;
@@ -104,7 +104,7 @@ void cvt_float(char *res, double nbr_d, char &end)
         std::cout << "float: " << nbr_d << "f" << std::endl;
 }
 
-void cvt_double(char *res, double nbr_d, char &end)
+void cvt_double(const char *res, double nbr_d, char &end)
 {
     if (prt_txtsci(res, t_double) == true)
         return ;
@@ -116,7 +116,7 @@ void cvt_double(char *res, double nbr_d, char &end)
             std::cout << "double: " << nbr_d << std::endl;
 }
 
-int prt_txtsci(char *res, short type)
+int prt_txtsci(const char *res, short type)
 {
     if (strcmp(res, "nan") == 0 || strcmp(res, "nanf") == 0)
     {
