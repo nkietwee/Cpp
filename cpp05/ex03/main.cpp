@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 02:12:10 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/25 17:21:55 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/27 04:23:13 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,16 @@ int main()
 		AForm*	rrf;
 		
 		rrf = A.makeForm("test", "test");
-	
+		std::cout << std::endl;
+			
 		rrf = A.makeForm("shrubbery creation", "Bender");
 		std::cout << *rrf << std::endl;
+		std::cout << std::endl;
 		delete rrf;
 	
 		rrf = A.makeForm("robotomy request", "Bender");
 		std::cout << *rrf << std::endl;
+		std::cout << std::endl;
 		delete rrf;
 	
 		rrf = A.makeForm("presidential pardon", "Bender");

@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 22:02:48 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/25 14:52:49 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/27 04:08:51 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Form::Form() :_name("Unname"), _sign(false), _grade_sign(0), _grade_exec(0)
 
 Form::~Form()
 {
-    std::cout << "Deconstructor called" << std::endl;
+    // std::cout << "Deconstructor called" << std::endl;
 }
 
 Form& Form::operator=(const Form &other)

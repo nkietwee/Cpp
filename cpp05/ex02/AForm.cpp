@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 21:21:07 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/25 16:45:51 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/27 04:15:10 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void		AForm::beSigned(const Bureaucrat &other)
 void        AForm::execute(const Bureaucrat &other) const
 {
 	(void)other;
-	std::cout << "AForm executed." << std::endl;
+	std::cout << GREEN << "AForm executed." << RESET << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &os, const AForm &other)

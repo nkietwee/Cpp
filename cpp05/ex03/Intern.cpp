@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 15:14:24 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/25 17:18:30 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/27 04:19:13 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,10 @@ Intern::Intern(const Intern &other)
 
 AForm* Intern::makeForm(const std::string name, const std::string target) const
 {   
-	// std::map<int, std::string> table = {
-	// 	{0, "shrubbery creation"},
-	// 	{1, "robotomy request"},
-	// 	{2, "presidential pardon"}
-	// };
 	std::map<int, std::string> table;
 	table[0] = "shrubbery creation";
 	table[1] = "robotomy request";
 	table[2] = "presidential pardon";
-
 	for (int i = 0; i < 3; i++)
 	{
 		if (name == table[i])

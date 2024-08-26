@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 02:12:10 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/19 21:28:28 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/27 04:03:19 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main()
     {
         // // Created
         // Bureaucrat A("A", 1);
-        // Bureaucrat B("B", 150);
+        // Bureaucrat B("B", 151);
         
         // // Overflow
         // Bureaucrat C("C", 4);

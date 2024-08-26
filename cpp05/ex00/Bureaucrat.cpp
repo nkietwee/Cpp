@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 02:09:28 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/23 12:30:50 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/27 04:01:57 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Bureaucrat::Bureaucrat() : _name("Unname") , _grade(0)
 {
-    std::cout << "[Default] Constructor Bureaucrat called" << std::endl;
+    // std::cout << "[Default] Constructor Bureaucrat called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
@@ -31,7 +31,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Deconstructor Bureaucrat called" << std::endl;
+    // std::cout << "Deconstructor Bureaucrat called" << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other)
