@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 00:22:09 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/27 01:50:46 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/27 02:11:11 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,6 @@
 
 #include <iostream>
 #include <string>
-
-// class Data
-// {
-//     public:
-//         std::string name;
-//         int         age;
-// };
 
 struct Data
 {

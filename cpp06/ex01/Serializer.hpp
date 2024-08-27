@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 00:10:02 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/27 01:57:33 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/27 02:11:06 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include <stdint.h>
 
 # include "Data.hpp"
-
-// class Data;
 
 class Serializer
 {
