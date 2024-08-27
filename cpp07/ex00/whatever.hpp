@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 04:39:13 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/27 13:01:39 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/27 13:04:06 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,5 @@ T const & min(T const &x, T const &y)
 {
     return (x < y) ? x : y;
 }
-
-// template <typename T>
-// T max(T x, T y)
-// {
-//     return (x > y) ? x : y;
-// }
-
-// template <typename T>
-// T min(T x, T y)
-// {
-//     return (x < y) ? x : y;
-// }
  
 #endif
