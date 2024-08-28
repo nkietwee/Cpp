@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 01:19:24 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/27 00:46:09 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/29 01:38:28 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 enum type
 {
+    t_char,
+    t_int,
     t_double,
     t_float
 };
@@ -36,10 +38,13 @@ class ScalarConverter
 };
 
 double  ft_stob(const char *str, char &end);
-void    cvt_char(double nbr_d, char &end);
-void    cvt_int(double nbr_d, char &end);
-void    cvt_float(const char *res, double nbr_d, char &end);
-void    cvt_double(const char *res, double nbr_d, char &end);
+void    cvt_char(const char *res, double nbr_d, char &end, bool is_float);
+void    cvt_int(const char *res, double nbr_d, char &end, bool is_float);
+void    cvt_float(const char *res, double nbr_d, char &end, bool is_float);
+void    cvt_double(const char *res, double nbr_d, char &end, bool is_float);
 int     prt_txtsci(const char *res, short type);
+bool    check_float(std::string nbr);
+double	ft_atof(const char *str, char &end);
+bool check_btwfloat(const char *res);
 
 #endif
