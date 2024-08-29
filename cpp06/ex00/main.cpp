@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 01:36:28 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/29 00:24:42 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/29 18:07:48 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 int main(int ac, char **av)
 {
-    // ScalarConverter a;
     std::string nbr;
     try
     {
-        
         if (ac == 2)
         {
-            // nbr = av[1];
             nbr = av[1];
             ScalarConverter::convert(nbr);
         }
@@ -32,7 +29,4 @@ int main(int ac, char **av)
     {
         std::cerr << msg << std::endl;
     }
-
- 
-    
 }

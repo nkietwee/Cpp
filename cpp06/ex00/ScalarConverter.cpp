@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 01:35:40 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/29 01:52:58 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/29 18:08:06 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,7 +181,6 @@ void cvt_float(const char *res, double nbr_d, char &end, bool is_float)
     }
     else
         std::cout << "float: impossible" << std::endl;
-        
 }
 
 void cvt_double(const char *res, double nbr_d, char &end, bool is_float)

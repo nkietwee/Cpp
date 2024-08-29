@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 00:22:09 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/27 02:11:11 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/29 18:08:26 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ struct Data
     std::string surname;
     std::string intra;
 };
-
 
 #endif
