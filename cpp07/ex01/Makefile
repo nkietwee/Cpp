@@ -6,7 +6,7 @@
 #    By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/06 21:07:53 by nkietwee          #+#    #+#              #
-#    Updated: 2024/08/27 13:05:37 by nkietwee         ###   ########.fr        #
+#    Updated: 2024/08/28 14:53:32 by nkietwee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRCS	= main.cpp \
 
+HEADER = iter.hpp
+
 OBJS	= $(SRCS:.cpp=.o)
 
 %.o:%.cpp
@@ -25,7 +27,7 @@ OBJS	= $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(HEADER)
 				$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:

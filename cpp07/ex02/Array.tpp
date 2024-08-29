@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 14:11:33 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/28 15:13:03 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/29 02:47:01 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,23 @@ template<typename T>
 Array<T>::Array(unsigned int n) : _size(n), _arr(new T[n]) {}
 
 template<typename T>
-Array<T>::Array(Array const& other) : _size(other._size) {
+Array<T>::Array(Array const& other) : _size(other._size)
+{
 	this->_array = new T[_size];
 	for (unsigned int i = 0; i < this->_size; i++)
 		this->_array[i] = other._array[i];
 }
 
 template<typename T>
-Array<T>&	Array<T>::operator=(Array const& rhs) {
-	if (this != &rhs)
+Array<T>&	Array<T>::operator=(const Array &other)
+{
+	if (this != &other)
 	{
-		this->_size = rhs._size;
+		this->_size = other._size;
 		delete [] this->_array;
-		this->_array = new T[this->_size];
+		this->_arr = new T[this->_size];
 		for (unsigned int i = 0; i < this->_size; i++)
-			this->_array[i] = rhs._array[i];
+			this->_arr[i] = other._arr[i];
 	}
 	return *this;
 }
