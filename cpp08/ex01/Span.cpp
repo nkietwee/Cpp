@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 19:32:45 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/08/31 00:53:17 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/08/31 14:43:03 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,33 +31,6 @@ unsigned int Span::getSizeCurrent()
 	return (this->_size_current);
 }
 
-unsigned int Span::findMin()
-{
-	unsigned int tt = this->_vec.size();
-	int min = this->_vec.at(0);
-	unsigned int i = 1;
-	while (i < tt)
-	{
-		if (min > this->_vec.at(i))
-			min = this->_vec.at(i);
-		i++;
-	}
-	return (min);
-}
-
-unsigned int Span::findMax()
-{
-	unsigned int tt = this->_vec.size();
-	int max = this->_vec.at(0);
-	unsigned int i = 1;
-	while (i < tt)
-	{
-		if (max < this->_vec.at(i))
-			max = this->_vec.at(i);
-		i++;
-	}
-	return (max);
-}
 unsigned int Span::longestSpan()
 {
 	std::string err_msg_0 = "span size == 0";
