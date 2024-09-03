@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 16:24:16 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/09/03 00:59:27 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/09/03 17:09:07 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,26 +36,6 @@ BitcoinExchange::~BitcoinExchange()
 	// std::cout << "Deconstructor called" << std::endl;
 }
 
-std::vector<std::string> BitcoinExchange::ft_split(const std::string &str, char delimiter)
-{
-	std::vector<std::string> tokens;
-	std::string token;
-	std::stringstream ss(str);
-	
-	while (std::getline(ss, token, delimiter))
-	{
-		tokens.push_back(token);
-	}	
-	return tokens;
-}
-
-void	BitcoinExchange::ft_print_vec_str(std::vector<std::string> vec)
-{
-	for (unsigned long i = 0; i < vec.size(); i++)
-		std::cout << "|" << vec[i] << "|" ;
-	std::cout << std::endl;
-}
-
 void	BitcoinExchange::ft_prtmap(std::map<std::string, float> mp)
 {
 	std::map<std::string, float>::iterator it = mp.begin();
@@ -74,19 +54,26 @@ void BitcoinExchange::init_table()
 
 	if (!inputFile.is_open())
 		throw ("Error opening the data.csv!");
-
 	std::string line;
-	// std::cout << "File Content[data.csv]: " << std::endl;
-	std::vector<std::string> sp_vec;
+	std::string key;
+	std::string value;
+	int i = 0;
 	while (getline(inputFile, line))
 	{ 
-		// std::cout << line << std::endl; // Print the current line
-		sp_vec = ft_split(line, ',');
-		// ft_print_vec_str(sp);
-		_table.insert(std::pair<std::string, float>(sp_vec[0], atof(sp_vec[1].c_str())));
-		sp_vec.empty();
+			std::stringstream ss(line);
+			std::string word;
+			i = 0;
+			while (!ss.eof())
+			{
+				getline(ss, word, ',');
+				if (i == 0)
+					key = word;
+				else if (i == 1)
+					value = word;
+				i++;
+			}
+		_table.insert(std::pair<std::string, float>(key, atof(value.c_str())));
 	}
-
 	inputFile.close(); 
 }
 
@@ -167,7 +154,6 @@ bool	BitcoinExchange::is_all_digit(std::string date)
 	return (true);
 }
 
-
 bool	BitcoinExchange::check_date(int d, int m, int y)
 {
 	// date have alrerady exist
@@ -209,6 +195,7 @@ bool	BitcoinExchange::check_date(int d, int m, int y)
 bool BitcoinExchange::valid_date(std::string date)
 {
 	// Year-Month-Day
+	std::string yy, mm ,dd;
 	if (date.empty())
 		return (true);
 	if (is_all_digit(date) == false)
@@ -217,21 +204,33 @@ bool BitcoinExchange::valid_date(std::string date)
 		return (false);
 	}
 	t_time t;
-	t.sp_vec = ft_split(ft_trim_ispace(date), '-');
-	if (t.sp_vec.size() !=  3)
+	std::stringstream ss(ft_trim_ispace(date));
+	std::string word;
+	int i = 0;
+	while (!ss.eof())
+	{
+		getline(ss, word, '-');
+		if (i == 0)
+			yy = word;
+		else if (i == 1)
+			mm = word;
+		else if (i == 2)
+			dd = word;
+		i++;
+	}
+	if (i !=  3)
 	{
 		std::cout << "Error: bad input => " << date << std::endl;
 		return (false);
 	}
-	t.y = atoi(t.sp_vec[0].c_str());
-	t.m = atoi(t.sp_vec[1].c_str());
-	t.d = atoi(t.sp_vec[2].c_str());
+	t.y = atoi(yy.c_str());
+	t.m = atoi(mm.c_str());
+	t.d = atoi(dd.c_str());
 	if (check_date(t.d, t.m, t.y) == false)
 	{
 		std::cout << "Error: bad input => " << date << std::endl;
 		return (false);
 	}
-	// ft_print_vec_str(t.sp_vec);
 	return (true);
 }
 
@@ -266,23 +265,32 @@ void	BitcoinExchange::ft_prt_value(char *input)
 	if (!inputFile.is_open())
 		throw ("Error opening the data.csv!");
 	std::string line;
-	std::vector<std::string> str_trim;
-	std::vector<std::string> sp_vec;
 	bool chk_date = true;
 	bool chk_value = true;
+	std::string date;
+	std::string value;
 	getline(inputFile, line); // drop heaad
 	while (getline(inputFile, line))
 	{ 
-		sp_vec = ft_split(line, '|');
-		chk_date = valid_date(sp_vec[0]);
-		chk_value = valid_value(sp_vec[1]);
+		std::stringstream ss(line);
+		std::string word;
+		int i = 0;
+		while (!ss.eof())
+		{
+			getline(ss, word, '|');
+			if (i == 0)
+				date = word;
+			else if (i == 1)
+				value = word;
+			i++;
+		}
+		chk_date = valid_date(date);
+		chk_value = valid_value(value);
 		if (chk_date == true && chk_value == true)
 		{
-			std::cout << sp_vec[0] << " => " << sp_vec[1] << " = " \
-			<< getPrice(sp_vec[0]) * atof(sp_vec[1].c_str()) << std::endl;
+			std::cout << date << " => " << value << " = " \
+			<< getPrice(date) * atof(value.c_str()) << std::endl;
 		}
-		str_trim.clear();
-		sp_vec.clear();
 	}
 	inputFile.close(); 
 }
