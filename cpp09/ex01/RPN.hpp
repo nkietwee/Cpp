@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 01:11:10 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/09/03 02:01:15 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:51:21 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,15 @@
 # include <stdlib.h>
 # include <sstream>
 # include <vector>
+# include <stack>
 
 class RPN
 {
 	public:
 		RPN();
 		~RPN();
+		RPN&  operator=(const RPN &other);
+		RPN(const RPN &other);
 		
 		void init_data(std::string av1);
 		int cal();
@@ -38,7 +41,6 @@ class RPN
 
 
 	private:
-		// std::vector<int> _input;
 		std::vector<std::string> _input;
 };
 
