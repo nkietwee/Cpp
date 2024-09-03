@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 14:49:51 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/09/03 17:09:29 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/09/03 17:11:11 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 #include <fstream>
 #include <sstream>
 #include <map>
-#include <string.h>
 
 typedef struct s_tome
 {
