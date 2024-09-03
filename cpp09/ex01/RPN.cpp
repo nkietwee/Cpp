@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 01:14:59 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/09/03 14:53:18 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/09/03 17:57:42 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,35 +22,18 @@ RPN::~RPN()
 	// std::cout << "Deconstruct called" << std::endl;
 }
 
-
 RPN&  RPN::operator=(const RPN &other)
 {
 	if (this != &other)
 	{
-		this->_input = other._input;
+		this->_stack = other._stack;
 	}
 	return (*this);
 }
 
-RPN::RPN(const RPN &other) : _input(other._input)
+RPN::RPN(const RPN &other) : _stack(other._stack)
 {
-}
-
-void	RPN::ft_prt_vec_str(std::vector<std::string> vec)
-{
-	for (unsigned long i = 0; i < vec.size(); i++)
-		std::cout << "|" << vec[i] << "|" << std::endl;
-}
-
-std::vector<std::string> RPN::ft_split(const std::string &str, char delimiter)
-{
-	std::vector<std::string> tokens;
-	std::string token;
-	std::stringstream ss(str);
-	
-	while (std::getline(ss, token, delimiter))
-		tokens.push_back(token);
-	return tokens;
+	(void)other;
 }
 
 bool RPN::isallnbr(std::string str)
@@ -84,67 +67,69 @@ bool RPN::isallsym(std::string str)
 	return (false);
 }
 
-void	RPN::init_data(std::string av1)
+int	RPN::init_data(std::string av1)
 {
-	unsigned long i;
-	
-	this->_input = ft_split(av1, ' ');
-	i = 0;
-	// valid input
-	while (i < this->_input.size())
+	int len = 0;
+	std::stringstream ss(av1);
+	std::string word;
+	std::string tmp;
+	while (!ss.eof())
 	{
-		if ((isallsym(this->_input[i]) == false) && isallnbr(this->_input[i]) == false)
+		getline(ss, word, ' ');
+		if ((isallsym(word) == false) && isallnbr(word) == false)
 			throw std::runtime_error("[Error] Input");
-		i++;
+		len++;
 	}
+	if (len < 3)
+		throw std::runtime_error("[Error] : len too short");
+	return (len);
 }
 
-int RPN::cal()
+int RPN::cal(std::string av1)
 {
-	unsigned long i;
-	unsigned long len;
+	int i;
 	int a;
 	int b;
+	int len;
 	
 	i = 0;
 	a = 0;
 	b = 0;
-	len = this->_input.size();
-	if (len < 3)
-		throw std::runtime_error("[Error] : len too short");
-	std::stack<int> _stack;
+	len = init_data(av1);
+	std::stringstream ss(av1);
+	std::string word;
 	while (i < len)
 	{		
-		if (isallnbr(this->_input[i]) == true) // nbr
-			_stack.push(atoi(this->_input[i].c_str()));
+		getline(ss, word, ' ');
+		if (isallnbr(word) == true) // nbr
+			this->_stack.push(atoi(word.c_str()));
 		else // sym
 		{
-			if (_stack.size() < 2)
+			if (this->_stack.size() < 2)
 				throw std::runtime_error("[Error] : Not enough operands for operation");
-			a = _stack.top();
-			_stack.pop();
-			b = _stack.top();
-			_stack.pop();
-			if (this->_input[i][0] == '+')
-				_stack.push(b + a);
-			else if (this->_input[i][0] == '-')
-				_stack.push(b - a);
-			else if (this->_input[i][0] == '*')
-				_stack.push(b * a);
-			else if (this->_input[i][0] == '/')
+			a = this->_stack.top();
+			this->_stack.pop();
+			b = this->_stack.top();
+			this->_stack.pop();
+			if (word[0] == '+')
+				this->_stack.push(b + a);
+			else if (word[0] == '-')
+				this->_stack.push(b - a);
+			else if (word[0] == '*')
+				this->_stack.push(b * a);
+			else if (word[0] == '/')
 			{
 				if (a == 0)
 					throw std::runtime_error("[Error] : Division by zero");
-				_stack.push(b / a);
+				this->_stack.push(b / a);
 			}
 		}
 		i++;
 	}
-	if (_stack.size() != 1)
+	if (this->_stack.size() != 1)
 		throw std::runtime_error("[Error] : Invalid RPN expression");
-	return (_stack.top());
+	return (this->_stack.top());
 }
-
 
 // int RPN::cal()
 // {
