@@ -6,19 +6,21 @@
 #    By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/06 21:07:53 by nkietwee          #+#    #+#              #
-#    Updated: 2024/08/29 03:14:15 by nkietwee         ###   ########.fr        #
+#    Updated: 2024/09/03 19:33:49 by nkietwee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= a.out
+NAME	= PmergeMe
 
 CC								= c++
 RM								= rm -f
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
+# CFLAGS	= -Wall -Wextra -Werror
 
 SRCS	= main.cpp \
+		PmergeMe.cpp
 
-HEADER = easyfind.hpp
+HEADER = PmergeMe.hpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
