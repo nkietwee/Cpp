@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 14:57:57 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/09/04 14:07:25 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/09/04 14:51:15 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,12 @@ int main(int ac, char **av)
 			std::cerr << "[Expected Input] ./PmergeMe 3 5 9 7 4" << std::endl;
 			return (false);
 		}
-		PmergeMe M;
-		M.chk_asd(ac, av)
-		M.init_vec(ac, av);
+		PmergeMe m;
+		
+		m.chk_asd(ac, av);
+		m.cal(ac, av);
+		// M.init_vec(ac, av);
+		
 	}
 	catch(const std::exception& e)
 	{

@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 14:58:04 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/09/04 13:27:21 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:23:08 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include <sstream>
 # include <vector>
 
+struct pair_t
+{
+	unsigned int	first, second;
+	// int	first, second;
+};
+
 class PmergeMe
 {
 	public:
@@ -26,18 +32,26 @@ class PmergeMe
 		PmergeMe(const PmergeMe &other);
 		~PmergeMe();
 		
+		// check err , init value
 		void init_vec(int ac, char **av);
 		void chk_asd(int len, char **av);
 		bool isallnbr(std::string str);
+		
+		// sort
+		void cal(int ac, char **av);
+		// void sort_asd();
 		
 		void prt_vec();
 		
 		std::vector<std::string> ft_split(const std::string &str, char delimiter);
 
 	private:
-		std::vector<int> _vector[5000];
+		// std::vector<int> _vector;
+		std::vector<pair_t> _vector;
 		int _pair;
 };
+
+// void chk_asd(int len, char **av);
 
 
 

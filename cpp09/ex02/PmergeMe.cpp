@@ -5,8 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/04 14:50:30 by nkietwee          #+#    #+#             */
+/*   Updated: 2024/09/04 15:23:59 by nkietwee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 15:05:24 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/09/04 14:07:12 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/09/04 14:28:26 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +43,25 @@ PmergeMe::PmergeMe(const PmergeMe &other)
 
 PmergeMe::~PmergeMe()
 {}
+
+void PmergeMe::chk_asd(int len, char **av)
+{
+	int	i = 1;
+	while (i < len - 1)
+	{
+		if (atoi(av[i]) < atoi(av[i + 1]))
+			i++;
+		else
+			return ;
+	}
+	throw std::runtime_error("[Error] assending");
+}
+
+void PmergeMe::cal(int ac, char **av)
+{
+	init_vec(ac, av);
+	// sort_asd();
+}
 
 bool PmergeMe::isallnbr(std::string str)
 {
@@ -67,61 +98,67 @@ void PmergeMe::prt_vec()
 	int i = 0;
 	while (i < this->_pair)
 	{
-		std::cout << "size : " << this->_vector[i].size() << std::endl;
-		std::cout << "res [" << i << "] : " ;
-		for (unsigned long it = 0; it < this->_vector[i].size(); it++)
-		{ 
-			std::cout << this->_vector[i][it] << " " ;
-		} 
-		std::cout << std::endl;
+		std::cout << "vec : " << this->_vector[i].first << " " << this->_vector[i].second << std::endl;
 		i++;
 	}
 }
 
-void chk_asd(int len, char **av)
-{
-	int	i = 1;
-	while (i < len - 1)
-	{
-		if (atoi(av[i]) < atoi(av[i + 1]))
-			i++;
-		else
-			return ;
-	}
-	throw std::runtime_error("[Error] assending");
-}
 
 void PmergeMe::init_vec(int ac, char **av)
 {
-	// check ascending
-	
-	int len;
-	// int pair;
 	(void)av;
+	int len;
 	len = ac - 1;
 	if (len % 2 == 0)
 		this->_pair = len / 2;
 	else
 		this->_pair = (len / 2) + 1;
 	// std::cout << "pair : " << this->_pair << std::endl;
-	int i = 0;
-	int loop = 1;
-	int ck = 0;
-	while (i < this->_pair)
+	int i = 1;
+	unsigned int num_a = 0;
+	unsigned int num_b = 0;
+	while (i < ac)
 	{
-		ck = 0;
-		while (ck < 2) // check if pair
-		{
-			if (av[loop])
-			{
-				// std::cout << "av : " << i << "|" << av[loop] << std::endl;
-				this->_vector[i].push_back(atoi(av[loop]));
-			}
-			loop++;
-			ck++;
-		}
-		// std::cout << std::endl;
-		i++;
+		num_a = atoi(av[i]);
+		if (av[i + 1]) // protect last arg
+			num_b = atoi(av[i + 1]);
+		else
+			num_b = 0;
+		// std::cout << "num_a : " << num_a << std::endl;
+		// std::cout << "num_b : " << num_b << std::endl;
+		if (num_a < num_b)
+			this->_vector.push_back((pair_t){num_a, num_b});
+		else if (num_a >= num_b && num_b != 0)
+			this->_vector.push_back((pair_t){num_b, num_a});
+		else
+			this->_vector.push_back((pair_t){num_a, 0});
+			
+		i += 2;
 	}
+	std::cout << std::endl;
 	prt_vec();
 }
+
+
+// void PmergeMe::sort_asd()
+// {
+// 	int i = 0;
+// 	std::vector<int> tmp;
+// 	std::cout << "Before" << std::endl;
+// 	prt_vec();
+// 	while (i < this->_pair)
+// 	{
+// 		if (this->_vector[i][0] < this->_vector[i + 1][0])
+// 			i++;
+// 		else // morethan
+// 		{
+// 			tmp = this->_vector[i];
+// 			this->_vector[i].erase(this->_vector[i].begin() + 2);
+// 			i = 0;
+// 		}
+// 	}
+// 	std::cout << "After" << std::endl;
+// 	prt_vec();
+// }
+
+
