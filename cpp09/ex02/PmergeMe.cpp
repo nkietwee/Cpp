@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:50:30 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/09/04 18:21:36 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/09/04 20:59:13 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,8 @@ void PmergeMe::prt_vec_merge()
 	unsigned int i;
 	
 	i = 0;
+	this->_len_pre = this->_pre.size();
+	this->_len_post = this->_post.size();
 	std::cout << "vector pre : " << std::endl;
 	while (i < this->_len_pre)
 	{
@@ -135,19 +137,10 @@ void PmergeMe::init_value(int ac)
 {
 	this->_tt = ac - 1;
 	if (this->_tt % 2 == 0)
-	{
 		this->_pair = this->_tt / 2;
-		this->_len_pre = this->_tt / 2;
-		this->_len_post = this->_tt / 2;
-	}
 	else
-	{
 		this->_pair = (this->_tt / 2) + 1;
-		this->_len_pre = this->_tt / 2;
-		this->_len_post = this->_tt / 2;
-	}
 }
-
 
 void PmergeMe::init_vec(int ac, char **av)
 {
@@ -167,11 +160,8 @@ void PmergeMe::init_vec(int ac, char **av)
 			this->_vector.push_back((pair_t){num_b, num_a});
 		else
 			this->_vector.push_back((pair_t){num_a, 0});
-			
 		i += 2;
 	}
-	// std::cout << std::endl;
-	// prt_vec();
 }
 
 void PmergeMe::sort_asd()
@@ -196,44 +186,39 @@ void PmergeMe::merge_first_value()
 	unsigned int i;
 
 	i = 0;
-	std::cout << "before" << std::endl;
-	prt_vec_pair_t();
 	while (i < this->_pair)
 	{
 		this->_pre.push_back(this->_vector[i].first);
 		this->_post.push_back(this->_vector[i].second);
 		i++;
 	}
-	std::cout << std::endl;
-	std::cout << "after" << std::endl;
-	prt_vec_merge();
-	
 }
-
-
 
 void PmergeMe::insert_sort()
 {
-	// int i;
+	unsigned int i;
+	int pos;
 
-	// i = 0;
-	// while (i < this->_len_post)
-	// {
-	// 	// find_pos
-	// }
-	std::cout << "find_pos : " << find_pos(7) << std::endl;
+	i = 0;
+	while (i < this->_len_post)
+	{
+		// find_pos
+		pos = find_pos(this->_post[i]);
+		if (pos != -1)
+			this->_pre.insert(this->_pre.begin() + pos + 1, this->_post[i]);
+		i++;
+	}
+	this->_post.clear();
 }
 
 int PmergeMe::find_pos(unsigned int target)
 {
 	unsigned int i;
-	unsigned int last;
 
-	i = this->_len_pre - 1;
-	last = this->_len_pre - 1;
+	i = (this->_pre.size()) - 1;
 	while (i)
 	{
-		if (this->_pre[i] <= target && this->_pre[last] >= target)
+		if (this->_pre[i] <= target)
 			return (i);
 		i--;
 	}
