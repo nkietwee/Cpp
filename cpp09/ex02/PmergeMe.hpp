@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 14:58:04 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/09/04 16:43:16 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/09/04 17:38:57 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ class PmergeMe
 		void cal(int ac, char **av);
 		void sort_asd();
 		void merge_first_value();
+		void insert_sort();
+		int find_pos(unsigned int target);
 		
 		void prt_vec_pair_t();
 		void prt_vec_merge();
@@ -51,8 +53,10 @@ class PmergeMe
 		std::vector<pair_t> _vector;
 		std::vector<unsigned int> _pre;
 		std::vector<unsigned int> _post;
-		int _pair;
-		int _tt;
+		unsigned int _pair;
+		unsigned int _tt;
+		unsigned int _len_pre;
+		unsigned int _len_post;
 };
 
 
