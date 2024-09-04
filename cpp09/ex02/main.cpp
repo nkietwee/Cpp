@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 14:57:57 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/09/03 18:11:58 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/09/04 14:07:25 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(int ac, char **av)
 			return (false);
 		}
 		PmergeMe M;
-
+		M.chk_asd(ac, av)
 		M.init_vec(ac, av);
 	}
 	catch(const std::exception& e)

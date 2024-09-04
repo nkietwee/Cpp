@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 15:05:24 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/09/03 20:03:25 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/09/04 14:07:12 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,23 @@ void PmergeMe::prt_vec()
 	}
 }
 
+void chk_asd(int len, char **av)
+{
+	int	i = 1;
+	while (i < len - 1)
+	{
+		if (atoi(av[i]) < atoi(av[i + 1]))
+			i++;
+		else
+			return ;
+	}
+	throw std::runtime_error("[Error] assending");
+}
 
 void PmergeMe::init_vec(int ac, char **av)
 {
+	// check ascending
+	
 	int len;
 	// int pair;
 	(void)av;

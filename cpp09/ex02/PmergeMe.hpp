@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 14:58:04 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/09/03 19:38:25 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/09/04 13:27:21 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class PmergeMe
 		~PmergeMe();
 		
 		void init_vec(int ac, char **av);
+		void chk_asd(int len, char **av);
 		bool isallnbr(std::string str);
 		
 		void prt_vec();
