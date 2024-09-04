@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:50:30 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/09/04 15:23:59 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/09/04 16:21:54 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ PmergeMe& PmergeMe::operator=(const PmergeMe &other)
 {
 	if (this != &other)
 	{
-		// this->_vector = other._vector;
+		this->_vector = other._vector;
+		this->_pair = other._pair;
 	}
 	return (*this);
 }
@@ -60,7 +61,8 @@ void PmergeMe::chk_asd(int len, char **av)
 void PmergeMe::cal(int ac, char **av)
 {
 	init_vec(ac, av);
-	// sort_asd();
+	std::cout << "before sort asd" << std::endl;
+	sort_asd();
 }
 
 bool PmergeMe::isallnbr(std::string str)
@@ -113,7 +115,6 @@ void PmergeMe::init_vec(int ac, char **av)
 		this->_pair = len / 2;
 	else
 		this->_pair = (len / 2) + 1;
-	// std::cout << "pair : " << this->_pair << std::endl;
 	int i = 1;
 	unsigned int num_a = 0;
 	unsigned int num_b = 0;
@@ -124,8 +125,6 @@ void PmergeMe::init_vec(int ac, char **av)
 			num_b = atoi(av[i + 1]);
 		else
 			num_b = 0;
-		// std::cout << "num_a : " << num_a << std::endl;
-		// std::cout << "num_b : " << num_b << std::endl;
 		if (num_a < num_b)
 			this->_vector.push_back((pair_t){num_a, num_b});
 		else if (num_a >= num_b && num_b != 0)
@@ -135,30 +134,23 @@ void PmergeMe::init_vec(int ac, char **av)
 			
 		i += 2;
 	}
-	std::cout << std::endl;
-	prt_vec();
+	// std::cout << std::endl;
+	// prt_vec();
 }
 
-
-// void PmergeMe::sort_asd()
-// {
-// 	int i = 0;
-// 	std::vector<int> tmp;
-// 	std::cout << "Before" << std::endl;
-// 	prt_vec();
-// 	while (i < this->_pair)
-// 	{
-// 		if (this->_vector[i][0] < this->_vector[i + 1][0])
-// 			i++;
-// 		else // morethan
-// 		{
-// 			tmp = this->_vector[i];
-// 			this->_vector[i].erase(this->_vector[i].begin() + 2);
-// 			i = 0;
-// 		}
-// 	}
-// 	std::cout << "After" << std::endl;
-// 	prt_vec();
-// }
+void PmergeMe::sort_asd()
+{
+	int i = 0;
+	while (i < this->_pair - 1)
+	{
+		if (this->_vector[i].first < this->_vector[i + 1].first)
+			i+=1;
+		else // morethan
+		{
+			std::swap(this->_vector[i], this->_vector[i + 1]);
+			i = 0;
+		}
+	}
+}
 
 

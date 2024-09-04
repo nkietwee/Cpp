@@ -6,7 +6,7 @@
 /*   By: nkietwee <nkietwee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 14:58:04 by nkietwee          #+#    #+#             */
-/*   Updated: 2024/09/04 15:23:08 by nkietwee         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:27:04 by nkietwee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 struct pair_t
 {
 	unsigned int	first, second;
-	// int	first, second;
 };
 
 class PmergeMe
@@ -39,19 +38,17 @@ class PmergeMe
 		
 		// sort
 		void cal(int ac, char **av);
-		// void sort_asd();
+		void sort_asd();
 		
 		void prt_vec();
 		
 		std::vector<std::string> ft_split(const std::string &str, char delimiter);
 
 	private:
-		// std::vector<int> _vector;
 		std::vector<pair_t> _vector;
 		int _pair;
 };
 
-// void chk_asd(int len, char **av);
 
 
 
